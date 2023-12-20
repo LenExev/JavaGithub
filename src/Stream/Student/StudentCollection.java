@@ -10,14 +10,16 @@ import java.util.List;
 import java.util.Random;
 
 public class StudentCollection {
+
     private static List<Student> students;
     public static List<Student> getStudents(int size) {
         Random rand = new Random();
         students = new ArrayList<>();
         for (int index = 0; index < size; index++) {
-            students.add(new Student("name"+index,
+            students.add(new Student("surname"+index+" name"+index+" patronymic"+index,
                             rand.nextInt(5),
-                    rand.nextInt(14,50)));
+                            rand.nextInt(14,50),
+                            rand.nextInt(60,100)));
         }
         return students;
     }

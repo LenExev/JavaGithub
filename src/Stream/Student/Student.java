@@ -4,11 +4,16 @@ public class Student {
     private String fullName;
     private int age;
     private int group;
-
-    public Student(String fullName,  int group, int age) {
+private int points;
+    public Student(String fullName,  int group, int age,int points) {
         this.fullName = fullName;
         this.age = age;
         this.group = group;
+        this.points=points;
+    }
+
+    public int getPoints() {
+        return points;
     }
 
     @Override
