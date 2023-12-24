@@ -1,30 +1,31 @@
 package Cataloge;
 
-public class Book {
-    private String autor;
+import java.io.Serializable;
+
+public class Book implements Serializable , Edition  {
+    private String author;
     private String name;
     private String genre;
     private int pages;
 
-    public Book(String autor, String name, String genre, int pages) {
-        this.autor = autor;
+    public Book(String author, String name, String genre, int pages) {
+        this.author = author;
         this.name = name;
         this.genre = genre;
         this.pages = pages;
     }
-
     @Override
-    public String toString() {
-        return "Book{" +
-                "autor='" + autor + '\'' +
+    public void print() {
+        System.out.println( "Book:" +
+                "author='" + author + '\'' +
                 ", name='" + name + '\'' +
                 ", genre='" + genre + '\'' +
                 ", pages=" + pages +
-                '}';
+                ';');
     }
 
-    public String getAutor() {
-        return autor;
+    public String getAuthor() {
+        return author;
     }
 
     public String getName() {
@@ -39,8 +40,8 @@ public class Book {
         return pages;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public void setName(String name) {
@@ -54,4 +55,6 @@ public class Book {
     public void setPages(int pages) {
         this.pages = pages;
     }
+
+
 }
