@@ -50,7 +50,7 @@ public class Cataloge implements Serializable {
             }
             if(edit instanceof Almanac){
                 for(Book book:((Almanac) edit).getBooks()){
-                    if(Objects.equals(book.getName(), author)){
+                    if(Objects.equals(book.getAuthor(), author)){
                         System.out.println("+++Found by author in Almanac: name="+ edit.getName());
                         book.print();
                     }
