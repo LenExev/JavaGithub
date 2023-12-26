@@ -39,6 +39,11 @@ public class Newspaper implements Serializable, Edition  {
         return name;
     }
 
+    @Override
+    public String getAuthor() {
+        return null;
+    }
+
     public String getDate() {
         return date;
     }

@@ -26,6 +26,11 @@ public class Almanac implements Serializable, Edition {
         return name;
     }
 
+    @Override
+    public String getAuthor() {
+        return null;
+    }
+
     public List<Book> getBooks() {
         return books;
     }

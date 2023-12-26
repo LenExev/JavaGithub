@@ -42,7 +42,7 @@ public class Cataloge implements Serializable {
         System.out.println("+++Found by author:");
         for (Edition edit:editions ) {
             if(edit instanceof Book ){
-                if(Objects.equals(edit.getName(), author)){
+                if(Objects.equals(edit.getAuthor(), author)){
                     edit.print();
                 }
             }
