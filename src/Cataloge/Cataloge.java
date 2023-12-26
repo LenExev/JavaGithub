@@ -15,9 +15,11 @@ public class Cataloge implements Serializable {
         editions.add(edition);
     }
     public void printCataloge(){
+        System.out.println(":::Catalog:");
         for(Edition edit:editions){
             edit.print();
         }
+        System.out.println(":::");
     }
     public void findByName(String name){
         System.out.println("^^^Found by name:");
