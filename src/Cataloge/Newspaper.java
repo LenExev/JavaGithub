@@ -16,7 +16,7 @@ public class Newspaper implements Serializable, Edition  {
 
     @Override
     public void print() {
-        System.out.println("Newspaper name: "+name+", date='" + date);
+        System.out.println("Newspaper name: "+name+", date=" + date);
         System.out.println("---capitals:");
         for(String cap:capitals){
             System.out.println(cap);

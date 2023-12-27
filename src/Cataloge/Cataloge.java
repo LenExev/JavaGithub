@@ -17,6 +17,7 @@ public class Cataloge implements Serializable {
     public void printCataloge(){
         System.out.println(":::Catalog:");
         for(Edition edit:editions){
+            System.out.print("-");
             edit.print();
         }
         System.out.println(":::");
