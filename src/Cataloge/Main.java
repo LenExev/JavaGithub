@@ -3,8 +3,7 @@ package Cataloge;
 public class Main {
     public static void main(String[] args) {
 
-        CreateCataloge createCataloge=new CreateCataloge();
-        Cataloge cataloge=createCataloge.create(4,3,1);
+        Cataloge cataloge=CreateCataloge.create(4,3,1);
         cataloge.printCataloge();
         System.out.println("/".repeat(20));
         cataloge.findByName("Порадниця");

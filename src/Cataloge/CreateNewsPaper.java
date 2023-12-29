@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 public class CreateNewsPaper {
-    public String[] names={"Голос Украіни","Порадниця","Публіка","Життя"};
+    public String[] names={"Голос Украины","Советчица","Публика","Жизнь"};
     public List<String> createTittles(){
         List<String> tittles=new ArrayList<>();
         Random rand = new Random();

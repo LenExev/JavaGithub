@@ -1,7 +1,7 @@
 package Cataloge;
 
-public class CreateCataloge {
-    public Cataloge create(int number1,int number2, int number3){
+public  class CreateCataloge {
+    public static Cataloge create(int number1,int number2, int number3){
         Cataloge cataloge=new Cataloge();
         for(int index=0;index<number1;index++){
            CreateBook createBook=new CreateBook();

@@ -10,7 +10,7 @@ public class CreateBook {
     public Book create(){
         Random rand = new Random();
 
-        return new Book(autors[rand.nextInt(autors.length)],"name"+rand.nextInt(40),
+        return new Book(autors[rand.nextInt(autors.length)],"name"+rand.nextInt(1,20),
                 genres[rand.nextInt(genres.length)],rand.nextInt(40,2000));
     }
 }
