@@ -1,8 +1,11 @@
 package Cataloge;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Book implements Serializable , Edition  {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private String author;
     private String name;
     private String genre;
