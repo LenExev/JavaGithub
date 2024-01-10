@@ -38,9 +38,9 @@ public void run(){
         if(passed >= distance){
             passed=distance;
             isFinish = true;
-            latch.countDown();
            finishTime=  System.currentTimeMillis() - Race.startRaceTime.get() ;
             System.out.println(name + " FINISHED! time in race = "+ Race.convertToTime(finishTime));
+            latch.countDown();
             return;
         }
         print();

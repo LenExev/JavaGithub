@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -13,16 +14,23 @@ public class Race {
     public static AtomicLong startRaceTime;
     public static void main(String[] args) throws InterruptedException {
 
+        Random random=new Random();
         int distance=1000;
+        String[] names={"Audi","Mercedes","VW","Toyota","Volvo","Ford","Nissan","Opel"};
 
-        int numberOfCar=3;
+        int numberOfCar=random.nextInt(2, names.length);
+        //int maxSpeed= random.nextInt(160,180);
 
         CountDownLatch latch = new CountDownLatch(numberOfCar);
-         List<RaceCarRunnable> cars=new ArrayList<>();
 
-         cars.add(new RaceCarRunnable("Audi",160,distance,latch));
-         cars.add(new RaceCarRunnable("VW",160,distance,latch));
-         cars.add(new RaceCarRunnable("Toyota",160,distance,latch));
+        List<RaceCarRunnable> cars=new ArrayList<>();
+
+         for(int index=0; index< numberOfCar;index++){
+             cars.add(new RaceCarRunnable(names[index],maxSpeed(),distance,latch));
+         }
+//         cars.add(new RaceCarRunnable("Audi",160,distance,latch));
+//         cars.add(new RaceCarRunnable("VW",160,distance,latch));
+//         cars.add(new RaceCarRunnable("Toyota",160,distance,latch));
 
          List< Thread > carsRace=new ArrayList<>();
          for (var car:cars ) {
@@ -33,11 +41,30 @@ public class Race {
         startRace(carsRace);
         try {
             latch.await();
+            long minTime=findMinTime(cars);
+            System.out.println("    ***********");
+            for (var car:cars ) {
+                if(minTime == car.getFinishTime()){
+                    System.out.println(car.getName() + " WINNER! time in race = "+ Race.convertToTime(car.getFinishTime()) );
+                }
+            }
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
-
+public static long findMinTime(List<RaceCarRunnable> cars){
+    long minTime=cars.get(0).getFinishTime();
+    for (var car:cars ) {
+        if(minTime > car.getFinishTime()){
+            minTime = car.getFinishTime();
+        }
+    }
+    return minTime;
+}
+public static int maxSpeed(){
+        Random random=new Random();
+        return random.nextInt(160,180);
+    }
     public static void  startRace(List<Thread> cars){
 
         startRaceTime = new AtomicLong(System.currentTimeMillis());
