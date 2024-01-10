@@ -11,13 +11,14 @@ private boolean isFinish;
     public RaceCarRunnable(String name, int maxSpeed, int distance) {
         super(name, maxSpeed);
         this.distance=distance;
+        passed = 0;
     }
     public int  getRandomSpeed(){
         Random rand = new Random();
         return rand.nextInt(super.maxSpeed/2, super.maxSpeed);
     }
     public void print(){
-        System.out.println(super.name+"=> speed: "+getRandomSpeed()+"; progress: "+getPassed()+"/"+getDistance());
+        System.out.println(super.name+" => speed: "+getRandomSpeed()+"; progress: "+getPassed()+"/"+getDistance());
     }
 @Override
 public void run(){
@@ -27,10 +28,12 @@ public void run(){
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        passed = distance-getRandomSpeed();
+        passed += getRandomSpeed();
         if(passed >= distance){
+            passed=distance;
             isFinish = true;
         }
+        print();
     }
 }
 
